@@ -1,0 +1,26 @@
+
+Goal: Using a Raspberry pi to provide feedback using sensors and other analog/digital inputs to provide useful data in testing, future designing, and car setup for the JMS Baja. This will be done both in real time via a typical car based cluster view and in post time in which the raw data can further be analysed.
+
+Sensor List: 
+    4x accelerometer (one at each corner) 
+        ADXL345 Digital Accelerometer Adafruit
+    1x Gyroscope (centrally mounted)
+    6x temperature sensors (4 brakes, two extras)
+        MVP9808 High Accuracy I2C Temperature Sensor Adafruit
+    2x position (accel and brake)
+    1x tachometer from engine
+
+Implementation Details:
+    
+
+Raspberry Pi 3
+USB Battery Pack (Romoss) 1566 at Adafruit.com
+
+
+Multiplexer Adafruit TCA9548A 1-to-8 I^2C
+
+
+Learning:
+    I2C https://learn.adafruit.com/i2c-addresses
+
+https://conoroneill.net/connecting-an-arduino-to-raspberry-pi-for-the-best-of-both-worlds/
