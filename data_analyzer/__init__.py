@@ -4,6 +4,7 @@ data_analyzer/
         accel_processing/
             __init__.py
             accelerometer_controller.py
+            accelerometer.py
         __init__.py
         driver.py
         controller.py
