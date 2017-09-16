@@ -33,15 +33,37 @@ class AccelerometerController:
 
         # Aquire the filename and get the reader environment setup
         self.__get_filename()
-        self.__csv_read.setup()
+        self.__csv_read.get_data()
+        self.__csv_read.get_data()
 
-        # aquire information about the datafile
-        self.__get_data()
+        data = self.__csv_read.return_data()
 
-        # create the array of accelerometers
-        for i in range(0,self.__number_accel):
-            new_accel = self.__create_accelerometers(i+1)
-            self.__accel_array.append(new_accel)
+        # print(data)
+
+
+        a1 = Accelerometer("test","test",data[0],data[1],data[2])
+
+        # print(a1.get_x())
+
+
+
+
+
+        # self.__csv_read.setup()
+
+
+
+        # # aquire information about the datafile
+        # self.__get_data()
+
+        # # create the array of accelerometers
+        # for i in range(0,self.__number_accel):
+        #     new_accel = self.__create_accelerometers(i+1)
+        #     self.__accel_array.append(new_accel)
+        
+        # # Grab the arrays of data from the CSV reader
+
+
 
     # gets a valid filename from the user
     def __get_filename(self):
@@ -63,7 +85,7 @@ class AccelerometerController:
     def __get_data(self):
 
         # Get data to construct the accelerometer objects
-        self.__number_accel = self.__csv_read.get_next()
+        self.__number_accel = self.__csv_read.get_information()
         self.__number_accel = int(self.__number_accel)
 
         print("{}{} accelerometer(s) detected".format(self.__driver.spacer(),self.__number_accel))
