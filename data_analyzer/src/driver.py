@@ -5,6 +5,8 @@
 #   
 #   Description: In charge of printing to terminal
 
+import sys
+
 class Driver :
 
     __line_length = 50
@@ -13,6 +15,9 @@ class Driver :
     def __init__(self,length,version) :
         self.__line_length = length
         self.__version = version
+
+    def spacer(self):
+        return("      ")
 
     def logo_print(self) :
         print("""   __              _                    _                   _                                  _
@@ -94,3 +99,27 @@ class Driver :
         for i in range(self.__line_length):
             print("\u2500",end='')
         print("\u2518")
+    
+    def mbcg(self,option_list):
+        self.menu_builder(option_list)
+        choice = self.choice_validation(1,len(option_list))
+        return choice
+
+    def menu_builder(self,option_list):
+        for i in range(len(option_list)):
+            print("{}{}. {}".format(self.spacer(),i+1,option_list[i]))
+    
+    def choice_validation(self,low,high):
+        choice = 0
+        print("{}--------------------".format(self.spacer()))
+        while (choice < low or choice > high):
+            while True:
+                try:
+                    choice = int(input("{}Choice: ".format(self.spacer())))
+                except ValueError:
+                    print("{}Please enter a number".format(self.spacer()))
+                    continue
+                else:
+                    break
+
+        return choice

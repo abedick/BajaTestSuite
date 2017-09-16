@@ -6,6 +6,7 @@
 #
 
 from src.driver import Driver
+from src.accel_processing.accelerometer_controller import AccelerometerController
 
 class Controller:
     __driver = None
@@ -15,3 +16,17 @@ class Controller:
 
     def run(self):
         self.__driver.title_print_ext("Data Analyzer for Baja","Make a selection")
+
+        options = ["Accelerometer Data Analysis",
+                   "Design Review 2 Test Mode",
+                   "Quit"]
+
+        choice = self.__driver.mbcg(options)
+
+        if(choice == 1):
+            pass
+        elif(choice == 2):
+            accel_control = AccelerometerController()
+            accel_control.run()
+        else:
+            pass

@@ -1,6 +1,9 @@
 data_analyzer/
     __init__.py
     src/
+        accel_processing/
+            __init__.py
+            accelerometer_controller.py
         __init__.py
         driver.py
         controller.py
