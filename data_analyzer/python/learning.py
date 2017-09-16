@@ -190,8 +190,9 @@ class Animal:
         print("Animal")
 
     def toString(self):
-        return "{} is {} cm tall and {} kg and say {}".format(self.__name,self.__height,self.__sound)
+        return "{} is {} cm tall and {} kg and says {}".format(self.__name, self.__height, self.__weight, self.__sound)
 
 cat = Animal('Whiskers',33,10,'meow')
 
 print(cat.toString())
+
