@@ -6,6 +6,7 @@
 #
 
 from src.driver import Driver
+from src.controller import Controller
 
 import os
 
@@ -18,8 +19,8 @@ def main():
     os.system("clear")
     drive.logo_print()
 
-    drive.title_print_ext("Data Analyzer for Baja","Make a selection")
+    control = Controller(100)
+    control.run()
 
-
-
-main()
+if __name__ == "__main__":
+    main()
