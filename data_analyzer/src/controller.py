@@ -6,10 +6,14 @@
 #
 
 from src.driver import Driver
+from src.dataset import Dataset
 from src.accel_processing.accelerometer_controller import AccelerometerController
+
+import os
 
 class Controller:
     __driver = None
+    __dataset = None
 
     def __init__(self,length):
         self.__driver = Driver(length,"")
@@ -26,7 +30,18 @@ class Controller:
         if(choice == 1):
             pass
         elif(choice == 2):
-            accel_control = AccelerometerController()
+            self.__create_dataset()
+            accel_control = AccelerometerController(self.__dataset)
             accel_control.run()
         else:
             pass
+
+    def __create_dataset(self):
+        os.system("clear")
+        self.__driver.title_print_ext("Accelerometer Processing","Create a dataset")
+
+        name = input("{}Name for Dataset: ".format(self.__driver.spacer()))
+        date = input("{}Date data was recorded: ".format(self.__driver.spacer()))
+        user = input("{}User Name for Dataset: ".format(self.__driver.spacer()))
+
+        self.__dataset = Dataset(name,date,user)

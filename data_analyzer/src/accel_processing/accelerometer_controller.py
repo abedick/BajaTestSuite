@@ -6,6 +6,12 @@
 #
 
 
+# This controller is in charge of:
+#   1) Get a filename from the user
+#   2) Read the data
+#   3) return an array of accelerometer objects
+#
+
 from src.driver import Driver
 from src.drivers.csv_reader import CSV_reader
 from src.accel_processing.accelerometer import Accelerometer
@@ -13,17 +19,19 @@ from src.accel_processing.accelerometer import Accelerometer
 import os
 
 class AccelerometerController:
-    __main_title = "Design Review 2 Test Mode"
+    __main_title = "Accelerometer Controller"
 
     __driver = None
     __csv_read = None
 
     __filename = None
+    __dataset = None
 
     __number_accel = None
     __accel_array = []
 
-    def __init__(self):
+    def __init__(self,dataset):
+        self.__dataset = dataset
         self.__driver = Driver(100,"")
 
     def run(self):
@@ -34,11 +42,9 @@ class AccelerometerController:
         # Aquire the filename and get the reader environment setup
         self.__get_filename()
         self.__csv_read.get_data()
-        self.__csv_read.get_data()
 
+        # Grab the data
         data = self.__csv_read.return_data()
-
-        # print(data)
 
 
         a1 = Accelerometer("test","test",data[0],data[1],data[2])
