@@ -9,6 +9,7 @@ from src.accel_processing.accelerometer import Accelerometer
 import csv
 
 import numpy as np
+from numpy import genfromtxt
 
 class CSV_reader:
     __filename = None
