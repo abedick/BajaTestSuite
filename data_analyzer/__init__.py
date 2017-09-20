@@ -1,17 +1,11 @@
 data_analyzer/
     __init__.py
     src/
-        accel_processing/
-            __init__.py
-            accelerometer_controller.py
+        objects/
             accelerometer.py
-        data_processing/
-            __init__.py
-            data_processing.py
-        drivers/
-            __init__.py
-            csv_reader.py
-        __init__.py
-        dataset.py
-        driver.py
+            gyroscope.py
+            dataset.rpy
+        data_processor.py
+        data_analyzer.py
+        terminal_driver.py
         controller.py

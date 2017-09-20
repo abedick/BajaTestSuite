@@ -5,17 +5,16 @@
 #   Description: In charge of getting preliminary input from the user
 #
 
-from src.driver import Driver
-from src.dataset import Dataset
-from src.accel_processing.accelerometer_controller import AccelerometerController
-from src.data_processing.data_processor import DataProcessor
+from src.terminal_driver import Driver
+from src.data_processor import DataProcessor
+
 
 import os
 
 class Controller:
     __driver = None
-    __dataset = None
-    __processed_raw_data = None
+
+
 
     def __init__(self,length):
         self.__driver = Driver(length,"")
@@ -32,12 +31,10 @@ class Controller:
         if(choice == 1):
             pass
         elif(choice == 2):
-            self.__create_dataset()
-            accel_control = AccelerometerController(self.__dataset)
-            self.__processed_raw_data = accel_control.run()
 
-            data_process = DataProcessor(self.__processed_raw_data)
+            data_process = DataProcessor()
             data_process.run()
+
 
 
         else:
