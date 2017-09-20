@@ -8,6 +8,8 @@
 from src.accel_processing.accelerometer import Accelerometer
 import csv
 
+import numpy as np
+
 class CSV_reader:
     __filename = None
     __path_to_file = None
@@ -19,15 +21,16 @@ class CSV_reader:
 
     __read_in_data = None
 
-    __x_values = []
-    __y_values = []
-    __z_values = []
+    __reading = []
 
 
     def __init__(self,filename,path):
         self.__filename = filename
         self.__path_to_file = path
         self.__filename_path = path + filename
+
+        # for i in range(0,18):
+        #     self.__reading[i] = []
 
     def setup(self):
         self.__check_file()
@@ -58,15 +61,28 @@ class CSV_reader:
             
             for row in readCSV:
 
-                x_val = row[1]
-                y_val = row[2]
-                z_val = row[3]
+                self.__reading[0].append(row[0])
+                self.__reading[1].append(row[1])
+                self.__reading[2].append(row[2])
+                self.__reading[3].append(row[3])
+                self.__reading[4].append(row[4])
+                self.__reading[5].append(row[5])
+                self.__reading[6].append(row[6])
+                self.__reading[7].append(row[7])
+                self.__reading[8].append(row[8])
+                self.__reading[9].append(row[9])
+                self.__reading[10].append(row[10])
+                self.__reading[11].append(row[11])
+                self.__reading[12].append(row[12])
+                self.__reading[13].append(row[13])
+                self.__reading[14].append(row[14])
+                self.__reading[15].append(row[15])
+                self.__reading[16].append(row[16])
+                self.__reading[17].append(row[17])
+                self.__reading[18].append(row[18])
 
-                self.__x_values.append(x_val)
-                self.__y_values.append(y_val)
-                self.__z_values.append(z_val)
+
         
     def return_data(self):
 
-        accel_1_list = [self.__x_values,self.__y_values,self.__z_values]
-        return(accel_1_list)
+        return(self.__reading)

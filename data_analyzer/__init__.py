@@ -5,6 +5,9 @@ data_analyzer/
             __init__.py
             accelerometer_controller.py
             accelerometer.py
+        data_processing/
+            __init__.py
+            data_processing.py
         drivers/
             __init__.py
             csv_reader.py

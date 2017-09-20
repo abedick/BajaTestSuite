@@ -8,12 +8,14 @@
 from src.driver import Driver
 from src.dataset import Dataset
 from src.accel_processing.accelerometer_controller import AccelerometerController
+from src.data_processing.data_processor import DataProcessor
 
 import os
 
 class Controller:
     __driver = None
     __dataset = None
+    __processed_raw_data = None
 
     def __init__(self,length):
         self.__driver = Driver(length,"")
@@ -32,7 +34,12 @@ class Controller:
         elif(choice == 2):
             self.__create_dataset()
             accel_control = AccelerometerController(self.__dataset)
-            accel_control.run()
+            self.__processed_raw_data = accel_control.run()
+
+            data_process = DataProcessor(self.__processed_raw_data)
+            data_process.run()
+
+
         else:
             pass
 

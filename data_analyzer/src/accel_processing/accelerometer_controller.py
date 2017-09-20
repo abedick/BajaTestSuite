@@ -25,13 +25,13 @@ class AccelerometerController:
     __csv_read = None
 
     __filename = None
-    __dataset = None
+    __dataset_master = None
 
     __number_accel = None
     __accel_array = []
 
     def __init__(self,dataset):
-        self.__dataset = dataset
+        self.__dataset_master = dataset
         self.__driver = Driver(100,"")
 
     def run(self):
@@ -46,8 +46,21 @@ class AccelerometerController:
         # Grab the data
         data = self.__csv_read.return_data()
 
+        # Create the accelerometers
+        a1 = Accelerometer("pos ","test",data[1],data[2],data[3])
+        a2 = Accelerometer("pos ","test",data[4],data[5],data[6])
+        a3 = Accelerometer("pos ","test",data[7],data[8],data[9])
+        a4 = Accelerometer("pos ","test",data[10],data[11],data[12])
+        a5 = Accelerometer("pos ","test",data[13],data[14],data[15])
+        a6 = Accelerometer("pos ","test",data[16],data[17],data[18])
+        
 
-        a1 = Accelerometer("test","test",data[0],data[1],data[2])
+        # Store the data in the master
+        # self.__dataset_master.set_gyro(data[0])
+        self.__dataset_master.set_accel_array(a1)
+
+
+        return self.__dataset_master
 
         # print(a1.get_x())
 
