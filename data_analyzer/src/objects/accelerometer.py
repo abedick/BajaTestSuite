@@ -5,21 +5,21 @@
 #   Description: Models a 3 axis accelerometer using arrays to hold the x, y, and z axis
 #
 
+import numpy as np
+
 class Accelerometer:
 
     __name = None
     __model = "Adafruit MMA8451"
     __position = None
-    __x_dir = []
-    __y_dir = []
-    __z_dir = []
+    __xyz_array = None
+    __number_datapoints = None
 
-    def __init__(self,name,position,x,y,z):
+    def __init__(self,name,position,number_points):
         self.__name = name
         self.__position = position
-        self.__x_dir = x
-        self.__y_dir = y
-        self.__z_dir = z
+        self.__number_datapoints = number_points
+        self.__xyz_array = np.empty([number_points,3])
 
     def set_name(self,name):
         self.__name = name
@@ -36,20 +36,10 @@ class Accelerometer:
     def get_model(self):
         return self.__model
 
-    def get_x(self):
-        return self.__x_dir
+    def get_xyz(self):
+        return self.__xyz_array
 
-    def get_y(self):
-        return self.__y_dir
+    def add_data(self,xyz,row):
+        self.__xyz_array = np.append(self.__xyz_array,xyz)
 
-    def get_z(self):
-        return self.__z_dir
 
-    def add_to_x(self,x_value):
-        self.__x_dir.append(x_value)
-
-    def add_to_y(self,y_value):
-        self.__y_dir.append(y_value)
-
-    def add_to_z(self,z_value):
-        self.__z_dir.append(z_value)

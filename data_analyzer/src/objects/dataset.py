@@ -12,6 +12,7 @@ class Dataset:
     __user = None
     __accel_array = []
     __gyro = None
+    __number_datapoints = None
 
     def __init__(self,name,date,user):
         self.__name = name
