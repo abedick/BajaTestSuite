@@ -19,7 +19,7 @@ class Accelerometer:
         self.__name = name
         self.__position = position
         self.__number_datapoints = number_points
-        self.__xyz_array = np.empty([number_points,3])
+        self.__xyz_array = []
 
     def set_name(self,name):
         self.__name = name
@@ -40,6 +40,6 @@ class Accelerometer:
         return self.__xyz_array
 
     def add_data(self,xyz,row):
-        self.__xyz_array = np.append(self.__xyz_array,xyz)
+        self.__xyz_array.append(xyz)
 
 

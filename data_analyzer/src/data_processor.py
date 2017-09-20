@@ -80,23 +80,70 @@ class DataProcessor:
             # print(row)
 
         print("done")
+ 
+        accel1 = __accelerometer_array[0].get_xyz()
+        accel2 = __accelerometer_array[1].get_xyz()
+        accel3 = __accelerometer_array[2].get_xyz()
+        accel4 = __accelerometer_array[3].get_xyz()
+        accel5 = __accelerometer_array[4].get_xyz()
+        accel6 = __accelerometer_array[5].get_xyz()
+
+        daccel1x = []
+        daccel1y = []
+        daccel1z = []
 
 
-        np.set_printoptions(suppress=True)   
-        test = __accelerometer_array[0].get_xyz()
+                # print(accel1[0][0])
 
-        print(type(test))
-        print(test)
-        print(np.prod(test.shape))
-        print(test.ndim)
+        for i in range(0,len(accel2)):
+            daccel1x.append(accel1[i][0])
+            daccel1y.append(accel2[i][1])
+            daccel1z.append(accel3[i][2])
 
-        # x = range(0,__number_data_points)
 
-        # plt.plot(x)
-        # plt.ylabel('Force (m/s^2)')
-        # plt.xlabel('Time Passing')
+        # print(temp_arr)
+
+        # y = [range(0,__number_data_points)]
+        a1 = daccel1x
+        a2 = daccel1y
+        a3 = daccel1z
+
+
+        plt.plot(a1, label='accel1', linestyle='solid', color='blue')
+        plt.plot(a2, label='accel2', linestyle='solid', color='orange')
+        plt.plot(a3, label='accel3', linestyle='solid', color='black')
+        plt.legend()
+        plt.show()
+
+
+        # # print(accel1[0][0])
+
+        # for i in range(0,len(accel2)):
+        #     daccel1.append(accel1[i][0])
+        #     daccel2.append(accel2[i][0])
+        #     daccel3.append(accel3[i][0])
+        #     daccel4.append(accel4[i][0])
+        #     daccel5.append(accel5[i][0])
+        #     daccel6.append(accel6[i][0])
+
+        # # print(temp_arr)
+
+        # # y = [range(0,__number_data_points)]
+        # a1 = daccel1
+        # a2 = daccel2
+        # a3 = daccel3
+        # a4 = daccel4
+        # a5 = daccel5
+        # a6 = daccel6
+
+        # plt.plot(a1, label='accel1', linestyle='solid', color='blue')
+        # plt.plot(a2, label='accel2', linestyle='solid', color='orange')
+        # plt.plot(a3, label='accel3', linestyle='solid', color='black')
+        # plt.plot(a4, label='accel4', linestyle='solid', color='yellow')
+        # plt.plot(a5, label='accel5', linestyle='solid', color='green')
+        # plt.plot(a6, label='accel6', linestyle='solid', color='brown')
+        # plt.legend()
         # plt.show()
-
 
 
 
